@@ -4,7 +4,10 @@ import TopBar from './components/TopBar'
 import HomePage from './assets/pages/HomePage';
 import SimulationPage from './assets/pages/SimulationPage';
 import ScriptEditorPage from './assets/pages/ScriptEditorPage';
-import ExtraPage from './assets/pages/ExtraPage';
+import OutputPage from './assets/pages/OutputPage';
+//import logo from './assets/Natural_Resources_Canada.png';
+import logo from './assets/nrcan-logo.png';
+
 
 function App() {
 
@@ -29,13 +32,17 @@ function App() {
           </div>
         </div>
 
+        <div className="absolute bottom-3 left-3">
+          <img src={logo} alt="Logo" className=" w-36 opacity-90 hover:opacity-100 transition" /> {/* Display the image */}
+        </div>
+
         <div className="w-3/4 h-screen bg-gray-100">
-          <div className="p-6">
+          <div className="p-0">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/Simulation" element={<SimulationPage />} />
+              <Route  path="/Simulation" element={<SimulationPage />} />
               <Route path="/ScriptEditor" element={<ScriptEditorPage />} />
-              <Route path="/ExtraPage" element={<ExtraPage />} />
+              <Route path="/OutPut" element={<OutputPage />} />
             </Routes>
           </div>
         </div>

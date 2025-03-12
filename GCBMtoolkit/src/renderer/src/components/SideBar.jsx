@@ -14,7 +14,7 @@ function Sidebar() {
           Home
         </NavLink>
         <NavLink
-          to="/page-one"
+          to="/SimulationPage"
           className="cursor-pointer p-2 rounded-md border"
           activeClassName="bg-green-700"
         >
@@ -28,11 +28,11 @@ function Sidebar() {
           Script Editor
         </NavLink>
         <NavLink
-          to="/page-three"
+          to="/Output"
           className="cursor-pointer p-2 rounded-md"
           activeClassName="bg-green-700"
         >
-          EXtra
+          Output
         </NavLink>
       </div>
     </div>
