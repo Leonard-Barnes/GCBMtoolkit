@@ -1,0 +1,21 @@
+{
+    "project_type": "GcbmClassicSpatial",
+    "classifiers": [
+        "LeadingSpecies",
+        "RU"
+    ],
+    "aidb": "cbm_defaults_v1.2.8340.362.db",
+    "features": {
+        "growth_curves": {
+            "path": "yield_table_UngRU.csv",
+            "interval": 1,
+            "aidb_species_col": 5,
+            "increment_start_col": 16,
+            "increment_end_col": 266,
+            "classifier_cols": {
+                "LeadingSpecies": 1,
+                "RU": 11
+            }
+        }
+    }
+}

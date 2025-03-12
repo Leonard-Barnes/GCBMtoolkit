@@ -1,0 +1,490 @@
+{
+    "pixel_size": 0.01,
+    "tile_size": 1.0,
+    "block_size": 0.1,
+    "tiles": [
+        {
+            "x": -128,
+            "y": 52,
+            "index": 13732
+        },
+        {
+            "x": -128,
+            "y": 53,
+            "index": 13372
+        },
+        {
+            "x": -128,
+            "y": 54,
+            "index": 13012
+        },
+        {
+            "x": -127,
+            "y": 52,
+            "index": 13733
+        },
+        {
+            "x": -127,
+            "y": 53,
+            "index": 13373
+        },
+        {
+            "x": -127,
+            "y": 54,
+            "index": 13013
+        },
+        {
+            "x": -126,
+            "y": 52,
+            "index": 13734
+        },
+        {
+            "x": -126,
+            "y": 53,
+            "index": 13374
+        },
+        {
+            "x": -126,
+            "y": 54,
+            "index": 13014
+        },
+        {
+            "x": -125,
+            "y": 52,
+            "index": 13735
+        },
+        {
+            "x": -125,
+            "y": 53,
+            "index": 13375
+        },
+        {
+            "x": -125,
+            "y": 54,
+            "index": 13015
+        }
+    ],
+    "layers": [
+        {
+            "name": "initial_age",
+            "type": "RasterLayer"
+        },
+        {
+            "name": "mean_annual_temperature",
+            "type": "RasterLayer"
+        },
+        {
+            "name": "LeadingSpecies",
+            "type": "RasterLayer",
+            "tags": [
+                "classifier"
+            ]
+        },
+        {
+            "name": "RU",
+            "type": "VectorLayer",
+            "tags": [
+                "classifier"
+            ]
+        },
+        {
+            "name": "wildfire_150km_0",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_1",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_2",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_3",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_4",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_5",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_6",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_7",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_8",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_9",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_10",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_13",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_14",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_15",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_17",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_18",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_20",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_21",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_22",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_23",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_24",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_25",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_26",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_27",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_28",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_29",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_30",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_31",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_32",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_33",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_34",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_35",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_36",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_38",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_39",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_43",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_44",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_45",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_47",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_48",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_49",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_50",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_51",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_52",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_53",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_54",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_55",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_57",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_58",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_59",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_60",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_61",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_62",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_63",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_65",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_66",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        },
+        {
+            "name": "wildfire_150km_67",
+            "type": "DisturbanceLayer",
+            "tags": [
+                "disturbance"
+            ]
+        }
+    ]
+}

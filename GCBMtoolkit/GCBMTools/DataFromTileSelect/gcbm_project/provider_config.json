@@ -1,0 +1,325 @@
+{
+    "Providers": {
+        "SQLite": {
+            "path": "..\\input_database\\gcbm_input.db",
+            "type": "SQLite"
+        },
+        "RasterTiled": {
+            "layers": [
+                {
+                    "name": "wildfire_150km_45",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_45_moja.tiff",
+                    "layer_prefix": "wildfire_150km_45_moja"
+                },
+                {
+                    "name": "wildfire_150km_6",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_6_moja.tiff",
+                    "layer_prefix": "wildfire_150km_6_moja"
+                },
+                {
+                    "name": "wildfire_150km_10",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_10_moja.tiff",
+                    "layer_prefix": "wildfire_150km_10_moja"
+                },
+                {
+                    "name": "wildfire_150km_9",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_9_moja.tiff",
+                    "layer_prefix": "wildfire_150km_9_moja"
+                },
+                {
+                    "name": "wildfire_150km_3",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_3_moja.tiff",
+                    "layer_prefix": "wildfire_150km_3_moja"
+                },
+                {
+                    "name": "wildfire_150km_38",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_38_moja.tiff",
+                    "layer_prefix": "wildfire_150km_38_moja"
+                },
+                {
+                    "name": "wildfire_150km_52",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_52_moja.tiff",
+                    "layer_prefix": "wildfire_150km_52_moja"
+                },
+                {
+                    "name": "wildfire_150km_48",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_48_moja.tiff",
+                    "layer_prefix": "wildfire_150km_48_moja"
+                },
+                {
+                    "name": "wildfire_150km_32",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_32_moja.tiff",
+                    "layer_prefix": "wildfire_150km_32_moja"
+                },
+                {
+                    "name": "wildfire_150km_14",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_14_moja.tiff",
+                    "layer_prefix": "wildfire_150km_14_moja"
+                },
+                {
+                    "name": "wildfire_150km_65",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_65_moja.tiff",
+                    "layer_prefix": "wildfire_150km_65_moja"
+                },
+                {
+                    "name": "LeadingSpecies",
+                    "layer_path": "..\\layers\\tiled\\LeadingSpecies_moja.tiff",
+                    "layer_prefix": "LeadingSpecies_moja"
+                },
+                {
+                    "name": "wildfire_150km_27",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_27_moja.tiff",
+                    "layer_prefix": "wildfire_150km_27_moja"
+                },
+                {
+                    "name": "wildfire_150km_20",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_20_moja.tiff",
+                    "layer_prefix": "wildfire_150km_20_moja"
+                },
+                {
+                    "name": "wildfire_150km_5",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_5_moja.tiff",
+                    "layer_prefix": "wildfire_150km_5_moja"
+                },
+                {
+                    "name": "wildfire_150km_55",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_55_moja.tiff",
+                    "layer_prefix": "wildfire_150km_55_moja"
+                },
+                {
+                    "name": "wildfire_150km_4",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_4_moja.tiff",
+                    "layer_prefix": "wildfire_150km_4_moja"
+                },
+                {
+                    "name": "wildfire_150km_50",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_50_moja.tiff",
+                    "layer_prefix": "wildfire_150km_50_moja"
+                },
+                {
+                    "name": "wildfire_150km_28",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_28_moja.tiff",
+                    "layer_prefix": "wildfire_150km_28_moja"
+                },
+                {
+                    "name": "wildfire_150km_0",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_0_moja.tiff",
+                    "layer_prefix": "wildfire_150km_0_moja"
+                },
+                {
+                    "name": "wildfire_150km_44",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_44_moja.tiff",
+                    "layer_prefix": "wildfire_150km_44_moja"
+                },
+                {
+                    "name": "wildfire_150km_24",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_24_moja.tiff",
+                    "layer_prefix": "wildfire_150km_24_moja"
+                },
+                {
+                    "name": "wildfire_150km_49",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_49_moja.tiff",
+                    "layer_prefix": "wildfire_150km_49_moja"
+                },
+                {
+                    "name": "wildfire_150km_1",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_1_moja.tiff",
+                    "layer_prefix": "wildfire_150km_1_moja"
+                },
+                {
+                    "name": "wildfire_150km_67",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_67_moja.tiff",
+                    "layer_prefix": "wildfire_150km_67_moja"
+                },
+                {
+                    "name": "wildfire_150km_29",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_29_moja.tiff",
+                    "layer_prefix": "wildfire_150km_29_moja"
+                },
+                {
+                    "name": "wildfire_150km_23",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_23_moja.tiff",
+                    "layer_prefix": "wildfire_150km_23_moja"
+                },
+                {
+                    "name": "wildfire_150km_63",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_63_moja.tiff",
+                    "layer_prefix": "wildfire_150km_63_moja"
+                },
+                {
+                    "name": "wildfire_150km_7",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_7_moja.tiff",
+                    "layer_prefix": "wildfire_150km_7_moja"
+                },
+                {
+                    "name": "wildfire_150km_34",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_34_moja.tiff",
+                    "layer_prefix": "wildfire_150km_34_moja"
+                },
+                {
+                    "name": "wildfire_150km_35",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_35_moja.tiff",
+                    "layer_prefix": "wildfire_150km_35_moja"
+                },
+                {
+                    "name": "wildfire_150km_58",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_58_moja.tiff",
+                    "layer_prefix": "wildfire_150km_58_moja"
+                },
+                {
+                    "name": "wildfire_150km_2",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_2_moja.tiff",
+                    "layer_prefix": "wildfire_150km_2_moja"
+                },
+                {
+                    "name": "wildfire_150km_66",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_66_moja.tiff",
+                    "layer_prefix": "wildfire_150km_66_moja"
+                },
+                {
+                    "name": "wildfire_150km_61",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_61_moja.tiff",
+                    "layer_prefix": "wildfire_150km_61_moja"
+                },
+                {
+                    "name": "wildfire_150km_30",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_30_moja.tiff",
+                    "layer_prefix": "wildfire_150km_30_moja"
+                },
+                {
+                    "name": "wildfire_150km_22",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_22_moja.tiff",
+                    "layer_prefix": "wildfire_150km_22_moja"
+                },
+                {
+                    "name": "wildfire_150km_21",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_21_moja.tiff",
+                    "layer_prefix": "wildfire_150km_21_moja"
+                },
+                {
+                    "name": "wildfire_150km_62",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_62_moja.tiff",
+                    "layer_prefix": "wildfire_150km_62_moja"
+                },
+                {
+                    "name": "wildfire_150km_57",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_57_moja.tiff",
+                    "layer_prefix": "wildfire_150km_57_moja"
+                },
+                {
+                    "name": "initial_age",
+                    "layer_path": "..\\layers\\tiled\\initial_age_moja.tiff",
+                    "layer_prefix": "initial_age_moja"
+                },
+                {
+                    "name": "wildfire_150km_8",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_8_moja.tiff",
+                    "layer_prefix": "wildfire_150km_8_moja"
+                },
+                {
+                    "name": "wildfire_150km_39",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_39_moja.tiff",
+                    "layer_prefix": "wildfire_150km_39_moja"
+                },
+                {
+                    "name": "wildfire_150km_25",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_25_moja.tiff",
+                    "layer_prefix": "wildfire_150km_25_moja"
+                },
+                {
+                    "name": "wildfire_150km_15",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_15_moja.tiff",
+                    "layer_prefix": "wildfire_150km_15_moja"
+                },
+                {
+                    "name": "wildfire_150km_18",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_18_moja.tiff",
+                    "layer_prefix": "wildfire_150km_18_moja"
+                },
+                {
+                    "name": "wildfire_150km_59",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_59_moja.tiff",
+                    "layer_prefix": "wildfire_150km_59_moja"
+                },
+                {
+                    "name": "wildfire_150km_51",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_51_moja.tiff",
+                    "layer_prefix": "wildfire_150km_51_moja"
+                },
+                {
+                    "name": "wildfire_150km_47",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_47_moja.tiff",
+                    "layer_prefix": "wildfire_150km_47_moja"
+                },
+                {
+                    "name": "wildfire_150km_54",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_54_moja.tiff",
+                    "layer_prefix": "wildfire_150km_54_moja"
+                },
+                {
+                    "name": "wildfire_150km_17",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_17_moja.tiff",
+                    "layer_prefix": "wildfire_150km_17_moja"
+                },
+                {
+                    "name": "wildfire_150km_31",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_31_moja.tiff",
+                    "layer_prefix": "wildfire_150km_31_moja"
+                },
+                {
+                    "name": "RU",
+                    "layer_path": "..\\layers\\tiled\\RU_moja.tiff",
+                    "layer_prefix": "RU_moja"
+                },
+                {
+                    "name": "wildfire_150km_26",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_26_moja.tiff",
+                    "layer_prefix": "wildfire_150km_26_moja"
+                },
+                {
+                    "name": "wildfire_150km_36",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_36_moja.tiff",
+                    "layer_prefix": "wildfire_150km_36_moja"
+                },
+                {
+                    "name": "wildfire_150km_60",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_60_moja.tiff",
+                    "layer_prefix": "wildfire_150km_60_moja"
+                },
+                {
+                    "name": "wildfire_150km_53",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_53_moja.tiff",
+                    "layer_prefix": "wildfire_150km_53_moja"
+                },
+                {
+                    "name": "wildfire_150km_13",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_13_moja.tiff",
+                    "layer_prefix": "wildfire_150km_13_moja"
+                },
+                {
+                    "name": "wildfire_150km_43",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_43_moja.tiff",
+                    "layer_prefix": "wildfire_150km_43_moja"
+                },
+                {
+                    "name": "mean_annual_temperature",
+                    "layer_path": "..\\layers\\tiled\\mean_annual_temperature_moja.tiff",
+                    "layer_prefix": "mean_annual_temperature_moja"
+                },
+                {
+                    "name": "wildfire_150km_33",
+                    "layer_path": "..\\layers\\tiled\\wildfire_150km_33_moja.tiff",
+                    "layer_prefix": "wildfire_150km_33_moja"
+                }
+            ],
+            "blockLonSize": 0.1,
+            "tileLatSize": 1.0,
+            "tileLonSize": 1.0,
+            "cellLatSize": 0.01,
+            "cellLonSize": 0.01,
+            "blockLatSize": 0.1,
+            "type": "RasterTiledGDAL",
+            "library": "moja.modules.gdal"
+        }
+    }
+}

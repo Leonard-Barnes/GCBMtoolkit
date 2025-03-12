@@ -1,0 +1,87 @@
+{
+    "Libraries": {
+        "moja.modules.cbm": "external",
+        "moja.modules.zipper": "external",
+        "moja.modules.gdal": "external"
+    },
+    "LocalDomain": {
+        "start_date": "1990/01/01",
+        "end_date": "2001/01/01",
+        "landUnitBuildSuccess": "landUnitBuildSuccess",
+        "simulateLandUnit": "simulateLandUnit",
+        "sequencer_library": "moja.modules.cbm",
+        "sequencer": "CBMSequencer",
+        "timing": "annual",
+        "type": "spatial_tiled",
+        "landscape": {
+            "provider": "RasterTiled",
+            "num_threads": 4,
+            "tiles": [
+                {
+                    "x": -128,
+                    "y": 52,
+                    "index": 13732
+                },
+                {
+                    "x": -128,
+                    "y": 53,
+                    "index": 13372
+                },
+                {
+                    "x": -128,
+                    "y": 54,
+                    "index": 13012
+                },
+                {
+                    "x": -127,
+                    "y": 52,
+                    "index": 13733
+                },
+                {
+                    "x": -127,
+                    "y": 53,
+                    "index": 13373
+                },
+                {
+                    "x": -127,
+                    "y": 54,
+                    "index": 13013
+                },
+                {
+                    "x": -126,
+                    "y": 52,
+                    "index": 13734
+                },
+                {
+                    "x": -126,
+                    "y": 53,
+                    "index": 13374
+                },
+                {
+                    "x": -126,
+                    "y": 54,
+                    "index": 13014
+                },
+                {
+                    "x": -125,
+                    "y": 52,
+                    "index": 13735
+                },
+                {
+                    "x": -125,
+                    "y": 53,
+                    "index": 13375
+                },
+                {
+                    "x": -125,
+                    "y": 54,
+                    "index": 13015
+                }
+            ],
+            "x_pixels": 100,
+            "y_pixels": 100,
+            "tile_size_x": 1.0,
+            "tile_size_y": 1.0
+        }
+    }
+}

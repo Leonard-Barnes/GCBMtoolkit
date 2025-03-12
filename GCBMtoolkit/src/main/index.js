@@ -1,13 +1,20 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+const path = require("path"); 
+
+const fs = require("fs");
+
+const configPath = path.join(app.getAppPath(), "GCBMTools", "LoadYourOwnData", "config", "walltowall_config.json");
+
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
+    resizable: false,
     show: false,
     autoHideMenuBar: true,
     frame:false,
@@ -15,7 +22,8 @@ function createWindow() {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      contextIsolation: true,
     }
   })
 
@@ -72,10 +80,40 @@ app.whenReady().then(() => {
 
   })
 
+  ipcMain.handle("load-script", async () => {
+    try {
+      if (fs.existsSync(configPath)) {
+        return fs.readFileSync(configPath, "utf-8");
+      }
+      return "";
+    } catch (error) {
+      console.error("Error loading script:", error);
+      return "";
+    }
+  })
+  
+  ipcMain.on("save-script", (_, scriptContent) => {
+    try {
+      fs.writeFileSync(configPath, scriptContent, "utf-8");
+    } catch (error) {
+      console.error("Error saving script:", error);
+    }
+  })
+
+  ipcMain.handle('open-in-default-editor', async () => {
+    try {
+      const filePath = path.resolve(configPath); // Ensure this is the correct path to your file
+      await shell.openPath(filePath); // Open the file in the default editor
+      console.log(`File opened in default editor: ${filePath}`);
+    } catch (error) {
+      console.error("Error opening file in default editor:", error);
+    }
+  });
+
   ipcMain.on("open-pdf", (event, pdfName) => {
     const pdfPath = join(app.getAppPath(), 'public', 'pdfs', pdfName)
     shell.openPath(pdfPath).catch(err => console.error("Failed to open PDF:", err));
-  });
+  })
 
   createWindow()
 

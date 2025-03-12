@@ -1,4 +1,4 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
@@ -18,3 +18,8 @@ if (process.contextIsolated) {
   window.electron = electronAPI
   window.api = api
 }
+
+contextBridge.exposeInMainWorld("electron", {
+  loadScript: () => ipcRenderer.invoke("load-script"),
+  saveScript: (content) => ipcRenderer.send("save-script", content),
+});

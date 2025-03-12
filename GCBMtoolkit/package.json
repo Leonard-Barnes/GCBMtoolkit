@@ -20,7 +20,11 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
-    "react-router-dom": "^7.2.0"
+    "@monaco-editor/react": "^4.7.0",
+    "lucide-react": "^0.477.0",
+    "react-router-dom": "^7.2.0",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",

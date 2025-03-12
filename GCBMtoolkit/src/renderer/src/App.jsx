@@ -1,12 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopBar from './components/TopBar'
+import SideBar from './components/SideBar'
 import HomePage from './assets/pages/HomePage';
 import SimulationPage from './assets/pages/SimulationPage';
 import ScriptEditorPage from './assets/pages/ScriptEditorPage';
 import OutputPage from './assets/pages/OutputPage';
-//import logo from './assets/Natural_Resources_Canada.png';
-import logo from './assets/nrcan-logo.png';
+import SetupPage from './assets/pages/SetupPage';
+import GeneratePage from './assets/pages/GeneratePage';
+import FAQPage from './assets/pages/FAQPage';
+import SettingsPage from './assets/pages/SettingsPage';
+import TileSelectionPage from './assets/pages/TileSelectionPage';
+import logo from './assets/Flag_of_Canada.png';
+
 
 
 function App() {
@@ -14,35 +20,29 @@ function App() {
   return (
     <Router>
       <TopBar />
+      
       <div className="flex">
-        <div className="w-1/4 h-screen bg-green-800 text-white">
-          <div className="space-y-4 p-4">
-            <div className="cursor-pointer hover:bg-green-700 p-2 rounded-md">
-              <a href="/" className="pt-1 pb-1 pl-1 pr-32">Home</a>
-            </div>
-            <div className="cursor-pointer hover:bg-green-700 p-2 rounded-md">
-              <a href="/Simulation" className="pt-1 pb-1 pl-1 pr-24">Simulation</a>
-            </div>
-            <div className="cursor-pointer hover:bg-green-700 p-2 rounded-md">
-              <a href="/ScriptEditor" className="pt-1 pb-1 pl-1 pr-20">Script Editor</a>
-            </div>
-            <div className="cursor-pointer hover:bg-green-700 p-2 rounded-md">
-              <a href="/ExtraPage" className="pt-1 pb-1 pl-1 pr-24">Extra Page</a>
-            </div>
-          </div>
+      <div className="w-64 h-screen bg-gray-200 text-white shadow-lg flex flex-col p-4">
+        <SideBar></SideBar>
+      </div>
+      <div className="w-2 h-screen bg-gray-200"></div>
+        <div className="absolute bottom-12 left-24">
+          <img src={logo} alt="Logo" className=" w-12 opacity-90 hover:opacity-100 transition" />
         </div>
+        <div className="absolute bottom-4 left-8">Natural Resources Canada</div>
 
-        <div className="absolute bottom-3 left-3">
-          <img src={logo} alt="Logo" className=" w-36 opacity-90 hover:opacity-100 transition" /> {/* Display the image */}
-        </div>
-
-        <div className="w-3/4 h-screen bg-gray-100">
+        <div className="w-3/4 h-screen bg-gray-200">
           <div className="p-0">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route  path="/Simulation" element={<SimulationPage />} />
-              <Route path="/ScriptEditor" element={<ScriptEditorPage />} />
-              <Route path="/OutPut" element={<OutputPage />} />
+              <Route path="/Simulation/ScriptEditor" element={<ScriptEditorPage />} />
+              <Route path="/Simulation/Output" element={<OutputPage />} />
+              <Route path="/Settings" element={<SettingsPage />} />
+              <Route path="/Simulation/Generate" element={<GeneratePage />} />
+              <Route path="/Simulation/Setup" element={<SetupPage />} />
+              <Route path="/Simulation/TileSelection" element={<TileSelectionPage />} />
+              <Route path="/FAQ" element={<FAQPage />} />
             </Routes>
           </div>
         </div>

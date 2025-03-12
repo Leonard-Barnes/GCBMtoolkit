@@ -9,7 +9,7 @@ function HomePage() {
 
   return (
     <div className="flex flex-col p-0">
-      <div className="hero bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white py-20">
+      <div className="hero bg-gradient-to-r rounded-bl-lg from-green-400 via-blue-500 to-purple-600 text-white py-20">
         <h1 className="text-4xl font-bold text-center">Welcome to GCBM</h1>
         <p className="text-center text-lg mt-4">A powerful tool for forest carbon management and more</p>
         {/*<button className="mt-6 bg-white text-black py-2 px-6 rounded-full shadow-lg hover:bg-gray-100">Get Started</button> */}
