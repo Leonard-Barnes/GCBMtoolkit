@@ -1,31 +1,34 @@
 {
-    "project_name": "Sample data exercise",
-    "start_year": 1990,
-    "end_year": 2000,
-    "resolution": 0.01,
-    "aidb": "../input_database/cbm_defaults_v1.2.8340.362.db",
-    "yield_table": "../input_database/yield_table_UngRU.csv",
-    "yield_interval": 1,
-    "classifiers": {
-        "LeadingSpecies": {
-            "layer": "../layers/raw/Inventory/lead_species_150km.tif",
-            "attribute": "NFI code"
-        },
-        "RU": {
-            "layer": "../layers/raw/Inventory/admin_eco_150km.shp"
-        }
+  "project_name": "Carbon Model",
+  "start_year": 1990,
+  "end_year": 2000,
+  "resolution": 0.01,
+  "aidb": "../input_database/cbm_defaults_v1.2.8340.362.db",
+  "yield_table": "../input_database/yield_table_UngRU.csv",
+  "yield_interval": 1,
+  "bounding_box": {
+    "layer": "../layers/raw/Inventory/GRID_forested_ecosystems.shp",
+    "attribute": {
+      "TileID": [
+        258
+      ]
+    }
+  },
+  "classifiers": {
+    "LeadingSpecies": {
+      "layer": "../layers/raw/Inventory/lead_species_150km.tif",
+      "attribute": "NFI code"
     },
-    "layers": {
-        "initial_age": {
-            "layer": "../layers/raw/Inventory/forest_age_150km.tif"
-        },
-        "mean_annual_temperature": "../layers/raw/environment/annual_temp.tif"
+    "RU": {
+      "layer": "../layers/raw/Inventory/admin_eco_150km.shp"
+    }
+  },
+  "layers": {
+    "initial_age": {
+      "layer": "../layers/raw/Inventory/forest_age_150km.tif"
     },
-    "disturbances": {
-        "../layers/raw/disturbances/fire/wildfire_150km.shp": {
-            "disturbance_type": "Wildfire",
-            "year": "YEAR"
-        }
-    },
-    "gcbm_exe": "../tools/gcbm/moja.cli.exe"
+    "mean_annual_temperature": "../layers/raw/environment/annual_temp.tif"
+  },
+  "disturbances": {},
+  "gcbm_exe": "../tools/gcbm/moja.cli.exe"
 }

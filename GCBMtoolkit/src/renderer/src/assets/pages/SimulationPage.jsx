@@ -29,15 +29,10 @@ function SimulationPage() {
       <div className="flex justify-center mt-8">
         <NavLink to="/Simulation/TileSelection">
           <button className="bg-gray-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-500 transition">
-           Generate from Tile
+           Generate
           </button>
         </NavLink>
         <div className="p-8"></div>
-        <NavLink to="/Simulation/Setup">
-          <button className="bg-gray-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-500 transition">
-           Load your Own Data
-          </button>
-        </NavLink>
       </div>
     </div>
   );

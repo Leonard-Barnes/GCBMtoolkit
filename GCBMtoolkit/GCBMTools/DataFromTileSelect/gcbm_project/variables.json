@@ -209,68 +209,68 @@
                 "provider": "SQLite"
             }
         },
-        "wildfire_150km_45": {
+        "wildfire_150km_62": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_45"
+                "data_id": "wildfire_150km_62"
             }
         },
-        "wildfire_150km_6": {
+        "wildfire_150km_34": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_6"
+                "data_id": "wildfire_150km_34"
             }
         },
-        "wildfire_150km_10": {
+        "wildfire_150km_18": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_10"
+                "data_id": "wildfire_150km_18"
             }
         },
-        "wildfire_150km_9": {
+        "wildfire_150km_66": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_9"
+                "data_id": "wildfire_150km_66"
             }
         },
-        "wildfire_150km_3": {
+        "wildfire_150km_15": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_3"
+                "data_id": "wildfire_150km_15"
             }
         },
-        "wildfire_150km_38": {
+        "wildfire_150km_2": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_38"
+                "data_id": "wildfire_150km_2"
             }
         },
-        "wildfire_150km_52": {
+        "wildfire_150km_39": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_52"
+                "data_id": "wildfire_150km_39"
             }
         },
-        "wildfire_150km_48": {
+        "wildfire_150km_61": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_48"
+                "data_id": "wildfire_150km_61"
             }
         },
         "wildfire_150km_32": {
@@ -281,14 +281,6 @@
                 "data_id": "wildfire_150km_32"
             }
         },
-        "wildfire_150km_14": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_14"
-            }
-        },
         "wildfire_150km_65": {
             "transform": {
                 "library": "internal.flint",
@@ -297,28 +289,12 @@
                 "data_id": "wildfire_150km_65"
             }
         },
-        "LeadingSpecies": {
+        "wildfire_150km_26": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "LeadingSpecies"
-            }
-        },
-        "wildfire_150km_27": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_27"
-            }
-        },
-        "wildfire_150km_20": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_20"
+                "data_id": "wildfire_150km_26"
             }
         },
         "wildfire_150km_5": {
@@ -329,12 +305,196 @@
                 "data_id": "wildfire_150km_5"
             }
         },
+        "wildfire_150km_27": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_27"
+            }
+        },
+        "wildfire_150km_7": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_7"
+            }
+        },
+        "wildfire_150km_9": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_9"
+            }
+        },
+        "wildfire_150km_51": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_51"
+            }
+        },
+        "wildfire_150km_35": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_35"
+            }
+        },
+        "wildfire_150km_25": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_25"
+            }
+        },
+        "wildfire_150km_10": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_10"
+            }
+        },
+        "wildfire_150km_17": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_17"
+            }
+        },
+        "wildfire_150km_20": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_20"
+            }
+        },
+        "wildfire_150km_24": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_24"
+            }
+        },
+        "wildfire_150km_33": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_33"
+            }
+        },
         "wildfire_150km_55": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
                 "data_id": "wildfire_150km_55"
+            }
+        },
+        "LeadingSpecies": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "LeadingSpecies"
+            }
+        },
+        "wildfire_150km_54": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_54"
+            }
+        },
+        "wildfire_150km_43": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_43"
+            }
+        },
+        "wildfire_150km_29": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_29"
+            }
+        },
+        "wildfire_150km_53": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_53"
+            }
+        },
+        "wildfire_150km_67": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_67"
+            }
+        },
+        "RU": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "RU"
+            }
+        },
+        "wildfire_150km_36": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_36"
+            }
+        },
+        "wildfire_150km_58": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_58"
+            }
+        },
+        "wildfire_150km_3": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_3"
+            }
+        },
+        "wildfire_150km_47": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_47"
+            }
+        },
+        "wildfire_150km_44": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_44"
             }
         },
         "wildfire_150km_4": {
@@ -353,156 +513,28 @@
                 "data_id": "wildfire_150km_50"
             }
         },
-        "wildfire_150km_28": {
+        "wildfire_150km_48": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_28"
+                "data_id": "wildfire_150km_48"
             }
         },
-        "wildfire_150km_0": {
+        "wildfire_150km_52": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_0"
+                "data_id": "wildfire_150km_52"
             }
         },
-        "wildfire_150km_44": {
+        "wildfire_150km_14": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_44"
-            }
-        },
-        "wildfire_150km_24": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_24"
-            }
-        },
-        "wildfire_150km_49": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_49"
-            }
-        },
-        "wildfire_150km_1": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_1"
-            }
-        },
-        "wildfire_150km_67": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_67"
-            }
-        },
-        "wildfire_150km_29": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_29"
-            }
-        },
-        "wildfire_150km_23": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_23"
-            }
-        },
-        "wildfire_150km_63": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_63"
-            }
-        },
-        "wildfire_150km_7": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_7"
-            }
-        },
-        "wildfire_150km_34": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_34"
-            }
-        },
-        "wildfire_150km_35": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_35"
-            }
-        },
-        "wildfire_150km_58": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_58"
-            }
-        },
-        "wildfire_150km_2": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_2"
-            }
-        },
-        "wildfire_150km_66": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_66"
-            }
-        },
-        "wildfire_150km_61": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_61"
-            }
-        },
-        "wildfire_150km_30": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_30"
-            }
-        },
-        "wildfire_150km_22": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_22"
+                "data_id": "wildfire_150km_14"
             }
         },
         "wildfire_150km_21": {
@@ -513,132 +545,12 @@
                 "data_id": "wildfire_150km_21"
             }
         },
-        "wildfire_150km_62": {
+        "wildfire_150km_49": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_62"
-            }
-        },
-        "wildfire_150km_57": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_57"
-            }
-        },
-        "wildfire_150km_8": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_8"
-            }
-        },
-        "wildfire_150km_39": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_39"
-            }
-        },
-        "wildfire_150km_25": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_25"
-            }
-        },
-        "wildfire_150km_15": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_15"
-            }
-        },
-        "wildfire_150km_18": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_18"
-            }
-        },
-        "wildfire_150km_59": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_59"
-            }
-        },
-        "wildfire_150km_51": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_51"
-            }
-        },
-        "wildfire_150km_47": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_47"
-            }
-        },
-        "wildfire_150km_54": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_54"
-            }
-        },
-        "wildfire_150km_17": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_17"
-            }
-        },
-        "wildfire_150km_31": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_31"
-            }
-        },
-        "RU": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "RU"
-            }
-        },
-        "wildfire_150km_26": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_26"
-            }
-        },
-        "wildfire_150km_36": {
-            "transform": {
-                "library": "internal.flint",
-                "type": "LocationIdxFromFlintDataTransform",
-                "provider": "RasterTiled",
-                "data_id": "wildfire_150km_36"
+                "data_id": "wildfire_150km_49"
             }
         },
         "wildfire_150km_60": {
@@ -649,12 +561,20 @@
                 "data_id": "wildfire_150km_60"
             }
         },
-        "wildfire_150km_53": {
+        "wildfire_150km_59": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_53"
+                "data_id": "wildfire_150km_59"
+            }
+        },
+        "wildfire_150km_30": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_30"
             }
         },
         "wildfire_150km_13": {
@@ -665,20 +585,100 @@
                 "data_id": "wildfire_150km_13"
             }
         },
-        "wildfire_150km_43": {
+        "wildfire_150km_8": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_43"
+                "data_id": "wildfire_150km_8"
             }
         },
-        "wildfire_150km_33": {
+        "wildfire_150km_23": {
             "transform": {
                 "library": "internal.flint",
                 "type": "LocationIdxFromFlintDataTransform",
                 "provider": "RasterTiled",
-                "data_id": "wildfire_150km_33"
+                "data_id": "wildfire_150km_23"
+            }
+        },
+        "wildfire_150km_38": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_38"
+            }
+        },
+        "wildfire_150km_28": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_28"
+            }
+        },
+        "wildfire_150km_63": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_63"
+            }
+        },
+        "wildfire_150km_6": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_6"
+            }
+        },
+        "wildfire_150km_57": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_57"
+            }
+        },
+        "wildfire_150km_0": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_0"
+            }
+        },
+        "wildfire_150km_22": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_22"
+            }
+        },
+        "wildfire_150km_1": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_1"
+            }
+        },
+        "wildfire_150km_45": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_45"
+            }
+        },
+        "wildfire_150km_31": {
+            "transform": {
+                "library": "internal.flint",
+                "type": "LocationIdxFromFlintDataTransform",
+                "provider": "RasterTiled",
+                "data_id": "wildfire_150km_31"
             }
         }
     }

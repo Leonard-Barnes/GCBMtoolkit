@@ -1,0 +1,15 @@
+{
+  "files": {
+    "yieldTable": "../input_database/yield_table_UngRU.csv",
+    "leadingSpecies": "../layers/raw/Inventory/lead_species_150km.tif",
+    "age": "../layers/raw/Inventory/forest_age_150km.tif"
+  },
+  "disturbances": [],
+  "parameters": {
+    "project_name": "Carbon Model",
+    "start_year": 1990,
+    "end_year": 2000,
+    "resolution": 0.01,
+    "yield_interval": 1
+  }
+}

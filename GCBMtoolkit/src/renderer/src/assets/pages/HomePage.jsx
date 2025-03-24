@@ -39,7 +39,10 @@ function HomePage() {
         <div className="card p-6 bg-white shadow-lg hover:scale-105 transform transition">
           <h3 className="text-xl font-semibold">FAQ</h3>
           <p>Read the answers to some of the GCBM's most asked questions</p>
-          <button className="mt-2 text-blue-500">Read More</button>
+          <NavLink
+            to="/FAQ" className="mt-2 text-blue-500 py-4">
+            <button className="mt-2 text-blue-500 hover:underline">Learn More</button>
+          </NavLink>
         </div>
         <div className="card p-6 bg-white shadow-lg hover:scale-105 transform transition">
         <h3 className="text-xl font-semibold mb-3">Useful Resources</h3>

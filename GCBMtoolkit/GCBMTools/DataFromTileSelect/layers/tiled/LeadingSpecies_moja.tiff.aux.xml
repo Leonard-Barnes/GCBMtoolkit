@@ -1,5 +1,45 @@
 <PAMDataset>
   <PAMRasterBand band="1">
+    <CategoryNames>
+      <Category>Non treed</Category>
+      <Category>ABIE.AMA</Category>
+      <Category>ABIE.BAL</Category>
+      <Category>ABIE.LAS</Category>
+      <Category>ACER.MAC</Category>
+      <Category>ACER.RUB</Category>
+      <Category>ACER.SAH</Category>
+      <Category>ALNU.INC</Category>
+      <Category>ALNU.RUB</Category>
+      <Category>BETU.ALL</Category>
+      <Category>BETU.PAP</Category>
+      <Category>CHAM.NOO</Category>
+      <Category>FRAX.NIG</Category>
+      <Category>LARI.LAR</Category>
+      <Category>LARI.OCC</Category>
+      <Category>PICE.ABI</Category>
+      <Category>PICE.ENG</Category>
+      <Category>PICE.GLA</Category>
+      <Category>PICE.MAR</Category>
+      <Category>PICE.RUB</Category>
+      <Category>PICE.SIT</Category>
+      <Category>PINU.ALB</Category>
+      <Category>PINU.BAN</Category>
+      <Category>PINU.CON</Category>
+      <Category>PINU.PON</Category>
+      <Category>PINU.RES</Category>
+      <Category>PINU.STR</Category>
+      <Category>POPU.BAL</Category>
+      <Category>POPU.GRA</Category>
+      <Category>POPU.TRE</Category>
+      <Category>PSEU.MEN</Category>
+      <Category>QUER.RUB</Category>
+      <Category>THUJ.OCC</Category>
+      <Category>THUJ.PLI</Category>
+      <Category>TSUG.CAN</Category>
+      <Category>TSUG.HET</Category>
+      <Category>TSUG.MER</Category>
+      <Category>ULMU.AME</Category>
+    </CategoryNames>
     <Histograms>
       <HistItem>
         <HistMin>-0.5</HistMin>

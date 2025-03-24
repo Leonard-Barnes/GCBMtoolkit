@@ -32,13 +32,30 @@ export default function Sidebar() {
 
       {/* Steps Flow  */}
       <div className="w-52 top-44 ml-2 h-[307px] absolute bg-transparent "></div>
-      <div className="mt-2 mb-1  space-y-1 pl-6 border-l-8 border-gray-500">
-        {/* Step 1: Setup */}
+      <div className="mt-2 mb-1 space-y-1 pl-6 border-l-8 border-gray-500">
+        {/* Step 1: Tile Selection */}
+        <NavLink
+          to="/Simulation/TileSelection"
+          className={({ isActive }) =>
+            `flex items-center space-x-2 p-2 rounded-lg transition ${
+              isActive ? "bg-gray-600" : "hover:bg-gray-600 text-gray-400"
+            }`
+          }
+        >
+          <BarChart size={18} />
+          <span className="">Tile Selection</span>
+        </NavLink>
+
+        <div className="flex items-center text-gray-400 pl-3">
+          <ArrowDown size={16} />
+        </div>
+
+        {/* Step 2: Setup */}
         <NavLink
           to="/Simulation/Setup"
           className={({ isActive }) =>
             `flex items-center space-x-2 p-2 rounded-lg transition ${
-              isActive ? "bg-gray-600" : "hover:bg-gray-600"
+              isActive ? "bg-gray-600" : "hover:bg-gray-600 text-gray-400"
             }`
           }
         >
@@ -50,29 +67,12 @@ export default function Sidebar() {
           <ArrowDown size={16} />
         </div>
 
-        {/* Step 2: Tile Selection */}
-        <NavLink
-          to="/Simulation/TileSelection"
-          className={({ isActive }) =>
-            `flex items-center space-x-2 p-2 rounded-lg transition ${
-              isActive ? "bg-gray-600" : "hover:bg-gray-600"
-            }`
-          }
-        >
-          <BarChart size={18} />
-          <span className="text-white">Tile Selection</span>
-        </NavLink>
-
-        <div className="flex items-center text-gray-400 pl-3">
-          <ArrowDown size={16} />
-        </div>
-
         {/* Script Editor */}
         <NavLink
           to="/Simulation/ScriptEditor"
           className={({ isActive }) =>
             `flex items-center space-x-2 p-2 rounded-lg transition ${
-              isActive ? "bg-gray-600" : "hover:bg-gray-600"
+              isActive ? "bg-gray-600" : "hover:bg-gray-600 text-gray-400"
             }`
           }
         >
@@ -89,7 +89,7 @@ export default function Sidebar() {
           to="/Simulation/Generate"
           className={({ isActive }) =>
             `flex items-center space-x-2 p-2 rounded-lg transition ${
-              isActive ? "bg-gray-600" : "hover:bg-gray-600"
+              isActive ? "bg-gray-600" : "hover:bg-gray-600 text-gray-400"
             }`
           }
         >
@@ -106,7 +106,7 @@ export default function Sidebar() {
           to="/Simulation/Output"
           className={({ isActive }) =>
             `flex items-center space-x-2 p-2 pb-3 rounded-lg transition ${
-              isActive ? "bg-gray-600" : "hover:bg-gray-600"
+              isActive ? "bg-gray-600" : "hover:bg-gray-600 text-gray-400"
             }`
           }
         >
