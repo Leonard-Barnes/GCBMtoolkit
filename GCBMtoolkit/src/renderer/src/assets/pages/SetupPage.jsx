@@ -5,11 +5,24 @@ const DEFAULT_AIDB_PATH = "../input_database/cbm_defaults_v1.2.8340.362.db";
 const DEFAULT_GCBM_EXECUTABLE = "../tools/gcbm/moja.cli.exe";
 
 export default function SetupPage() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const [files, setFiles] = useState({
-    yieldTable: "../input_database/yield_table_UngRU.csv",
-    leadingSpecies: "../layers/raw/Inventory/lead_species_150km.tif",
-    age: "../layers/raw/Inventory/forest_age_150km.tif",
+    yieldTable: "yield_table_UngRU.csv",
+    leadingSpecies: "lead_species_150km.tif",
+    age: "forest_age_150km.tif",
+    RU: "admin_eco_150km.shp",
+    fire: "wildfire_150km.shp",
+    temp: "annual_temp.tif",
   });
+
+  const FilePaths = {
+    inventory: "../layers/raw/Inventory/",
+    enviroment: "../layers/raw/Environment/",
+    fire: "../layers/raw/Disturbances/Fire/",
+    insect: "../layers/raw/Disturbances/Insect/",
+    inputDatabase: "../input_database/",
+  }
 
   const [disturbances, setDisturbances] = useState([]);
   const [parameters, setParameters] = useState({
@@ -20,10 +33,10 @@ export default function SetupPage() {
     yield_interval: 1,
   });
 
-  const disturbanceOptions = ["Fire", "Harvest", "Insect"];
   const [tileIDs, setTileIDs] = useState(null);
 
   useEffect(() => {
+    console.log("OutputPage rendered");
     const loadTileIDs = async () => {
       try {
         const result = await window.electron.ipcRenderer.invoke("load-tile-data");
@@ -35,26 +48,34 @@ export default function SetupPage() {
     loadTileIDs();
   }, []);
 
-  const handleFileUpload = async (fileType) => {
-    const result = await window.electron.ipcRenderer.invoke("select-file");
-    if (result.filePath) {
-      setFiles((prev) => ({ ...prev, [fileType]: result.filePath }));
-    }
-  };
-
-  const handleDisturbanceUpload = async (type) => {
-    if (disturbances.some((d) => d.type === type)) return; // Prevent duplicate types
-
-    const result = await window.electron.ipcRenderer.invoke("select-file");
-    if (result.filePath) {
-      setDisturbances((prev) => [...prev, { type, path: result.filePath }]);
-    }
+  const handleOpenFolder = async (path) => {
+    const cleanpath = path.slice(2)
+    await window.electron.ipcRenderer.invoke("open-folder", cleanpath);
+    setIsDropdownOpen(false); // Close dropdown after selection
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setParameters((prev) => ({ ...prev, [name]: value }));
   };
+
+  const changeFile = async (fileKey, filePath) => {
+    try {
+        const cleanPath = filePath.slice(2); // Remove "./" or any unwanted prefix
+        console.log("Opening directory:", cleanPath);
+
+        const result = await window.electron.ipcRenderer.invoke("select-file", cleanPath);
+
+        if (result.success) {
+            setFiles((prevFiles) => ({
+                ...prevFiles,
+                [fileKey]: result.filePath.split(/[/\\]/).pop(), // Extract just the filename
+            }));
+        }
+    } catch (error) {
+        console.error("Error selecting file:", error);
+    }
+};
 
   const handleSubmit = async () => {
     const updatedConfig = {
@@ -63,7 +84,7 @@ export default function SetupPage() {
       end_year: parameters.end_year,
       resolution: parameters.resolution,
       aidb: DEFAULT_AIDB_PATH,
-      yield_table: files.yieldTable,
+      yield_table: FilePaths.inputDatabase + files.yieldTable,
       yield_interval: parameters.yield_interval,
       bounding_box: {
         layer: "../layers/raw/Inventory/GRID_forested_ecosystems.shp",
@@ -71,21 +92,23 @@ export default function SetupPage() {
       },
       classifiers: {
         LeadingSpecies: {
-          layer: files.leadingSpecies,
+          layer: FilePaths.inventory + files.leadingSpecies,
           attribute: "NFI code",
         },
         RU: {
-          layer: "../layers/raw/Inventory/admin_eco_150km.shp",
+          layer: FilePaths.inventory + files.RU,
         },
       },
       layers: {
-        initial_age: { layer: files.age },
-        mean_annual_temperature: "../layers/raw/environment/annual_temp.tif",
+        initial_age: { layer: FilePaths.inventory + files.age },
+        mean_annual_temperature: FilePaths.enviroment + files.temp,
       },
-      disturbances: disturbances.reduce((acc, d) => {
-        acc[d.path] = { disturbance_type: d.type };
-        return acc;
-      }, {}),
+      disturbances: {
+        "../layers/raw/disturbances/fire/wildfire_150km.shp": {
+          "disturbance_type": "Wildfire",
+          "year": "YEAR"
+        }
+      },
       gcbm_exe: DEFAULT_GCBM_EXECUTABLE,
     };
 
@@ -106,89 +129,120 @@ export default function SetupPage() {
   };
 
   return (
-    <div className="p-6 w-[630px] mx-auto bg-white shadow-lg rounded-lg h-[600px] overflow-y-auto mt-4">
-      <h1 className="text-2xl font-bold mb-4">GCBM Setup</h1>
-      <p className="mb-4">Upload necessary files and input parameters for the GCBM simulation.</p>
-
-      {/* Input Fields */}
-      {[
-        { label: "Project Name", name: "project_name", type: "text" },
-        { label: "Start Year", name: "start_year", type: "number" },
-        { label: "End Year", name: "end_year", type: "number" },
-        { label: "Resolution", name: "resolution", type: "number", step: "0.1" },
-        { label: "Yield Interval", name: "yield_interval", type: "number" },
-      ].map((input) => (
-        <div className="mb-4" key={input.name}>
-          <label className="block font-semibold">{input.label}:</label>
-          <input
-            type={input.type}
-            name={input.name}
-            value={parameters[input.name]}
-            step={input.step || "1"}
-            onChange={handleInputChange}
-            className="mt-2 border p-2 rounded w-full"
-          />
-        </div>
-      ))}
-
-      {/* Required File Uploads */}
-      {[
-        { label: "Yield Table", name: "yieldTable" },
-        { label: "Leading Species", name: "leadingSpecies" },
-        { label: "Age", name: "age" },
-      ].map((file) => (
-        <div className="mb-4" key={file.name}>
-          <label className="block font-semibold">{file.label} (Required):</label>
-          <div
-            className="mt-2 border p-4 rounded w-full text-center bg-gray-100 hover:bg-gray-200 cursor-pointer"
-            onClick={() => handleFileUpload(file.name)}
-          >
-            {files[file.name] ? `✔️ ${files[file.name]}` : "Click to Upload"}
-          </div>
-        </div>
-      ))}
-
-      {/* Disturbance Dropdown and Upload */}
-      <div className="mb-4">
-        <label className="block font-semibold">Add Disturbance (Optional):</label>
-        <select
-          className="mt-2 border p-2 rounded w-full"
-          onChange={(e) => handleDisturbanceUpload(e.target.value)}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select disturbance type...
-          </option>
-          {disturbanceOptions.map((option) => (
-            <option key={option} value={option.toLowerCase()}>
-              {option}
-            </option>
-          ))}
-        </select>
+    <div className="p-6 w-[650px] mx-auto bg-white shadow-lg rounded-lg h-[600px] overflow-y-auto mt-4">
+      <h1 className="text-2xl font-bold mb-2">GCBM Setup</h1>
+      <p className="mb-4 text-sm">Upload necessary files and input parameters for the GCBM simulation.</p>
+  
+      {/* Project Name */}
+      <div className="mb-3">
+        <label className="block text-sm font-semibold">Project Name:</label>
+        <input
+          type="text"
+          name="project_name"
+          value={parameters.project_name}
+          onChange={handleInputChange}
+          className="mt-1 border p-2 rounded w-full text-sm"
+        />
       </div>
-
-      {/* Display added disturbances */}
-      {disturbances.length > 0 && (
-        <div className="mt-4">
-          <h3 className="font-semibold">Added Disturbances:</h3>
-          <ul className="bg-gray-100 p-4 rounded">
-            {disturbances.map((disturbance, index) => (
-              <li key={index} className="border-b py-2">
-                {disturbance.type} - {disturbance.path}
-              </li>
+  
+      {/* Start Year & End Year in the same row */}
+      <div className="flex space-x-4 mb-3">
+        {[
+          { label: "Start Year", name: "start_year", type: "number" },
+          { label: "End Year", name: "end_year", type: "number" },
+        ].map((input) => (
+          <div key={input.name} className="w-1/2">
+            <label className="block text-sm font-semibold">{input.label}:</label>
+            <input
+              type={input.type}
+              name={input.name}
+              value={parameters[input.name]}
+              onChange={handleInputChange}
+              className="mt-1 border p-2 rounded w-full text-sm"
+            />
+          </div>
+        ))}
+      </div>
+  
+      {/* Resolution & Yield Interval */}
+      <div className="flex space-x-4 mb-3">
+        {[
+          { label: "Resolution", name: "resolution", type: "number", step: "0.1" },
+          { label: "Yield Interval", name: "yield_interval", type: "number" },
+        ].map((input) => (
+          <div key={input.name} className="w-1/2">
+            <label className="block text-sm font-semibold">{input.label}:</label>
+            <input
+              type={input.type}
+              name={input.name}
+              value={parameters[input.name]}
+              step={input.step || "1"}
+              onChange={handleInputChange}
+              className="mt-1 border p-2 rounded w-full text-sm"
+            />
+          </div>
+        ))}
+      </div>
+  
+      {/* Upload Files Button and Dropdown */}
+      <div className="mb-3 relative">
+        <button
+          className="bg-gray-700 text-white text-sm px-4 py-2 rounded hover:bg-gray-800 w-full"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          Upload Files
+        </button>
+  
+        {isDropdownOpen && (
+          <div className="absolute w-full bg-white border rounded shadow-md mt-2 z-10">
+            {Object.entries(FilePaths).map(([key, path]) => (
+              <button
+                key={key}
+                onClick={() => handleOpenFolder(path)}
+                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+              >
+                {key.charAt(0).toUpperCase() + key.slice(1)}
+              </button>
             ))}
-          </ul>
-        </div>
-      )}
-
+          </div>
+        )}
+      </div>
+  
+      {/* Required File Uploads */}
+      <div className="grid grid-cols-2 gap-4 mb-3">
+        {[
+          { label: "Yield Table", name: "yieldTable", dir: FilePaths.inputDatabase },
+          { label: "Leading Species", name: "leadingSpecies", dir: FilePaths.inventory },
+          { label: "Age", name: "age", dir: FilePaths.inventory },
+          { label: "RU", name: "RU", dir: FilePaths.inventory },
+          { label: "Fire", name: "fire", dir: FilePaths.fire },
+          { label: "Temperature", name: "temp", dir: FilePaths.enviroment },
+        ].map(({ label, name, dir }) => (
+          <div key={name} className="flex items-center space-x-4">
+            <label className="text-sm font-semibold">{label}:</label>
+            <div className="flex-1">
+              <button
+                className={`mt-1 border p-3 rounded text-center text-sm cursor-pointer w-full ${
+                  files[name] ? "bg-green-100" : "bg-gray-100"
+                }`}
+                onClick={() => changeFile(name, dir)}
+              >
+                {files[name] ? `${files[name]}` : "Select file"}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+  
+      {/* Submit Button */}
       <NavLink to="/Simulation/ScriptEditor">
         <button
           onClick={handleSubmit}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full mt-4"
+          className="bg-green-600 text-white text-sm px-4 py-2 rounded hover:bg-green-700 w-full mt-4"
         >
           Next
         </button>
       </NavLink>
     </div>
   );
-}
+}    

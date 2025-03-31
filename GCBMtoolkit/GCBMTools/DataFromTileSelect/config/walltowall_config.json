@@ -10,7 +10,7 @@
     "layer": "../layers/raw/Inventory/GRID_forested_ecosystems.shp",
     "attribute": {
       "TileID": [
-        258
+        260
       ]
     }
   },
@@ -27,8 +27,13 @@
     "initial_age": {
       "layer": "../layers/raw/Inventory/forest_age_150km.tif"
     },
-    "mean_annual_temperature": "../layers/raw/environment/annual_temp.tif"
+    "mean_annual_temperature": "../layers/raw/Environment/annual_temp.tif"
   },
-  "disturbances": {},
+  "disturbances": {
+    "../layers/raw/disturbances/fire/wildfire_150km.shp": {
+      "disturbance_type": "Wildfire",
+      "year": "YEAR"
+    }
+  },
   "gcbm_exe": "../tools/gcbm/moja.cli.exe"
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import TopBar from './components/TopBar'
 import SideBar from './components/SideBar'
 import HomePage from './assets/pages/HomePage';
@@ -35,7 +35,7 @@ function App() {
           <div className="p-0">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route  path="/Simulation" element={<SimulationPage />} />
+              <Route path="/Simulation" element={<SimulationPage />} />
               <Route path="/Simulation/ScriptEditor" element={<ScriptEditorPage />} />
               <Route path="/Simulation/Output" element={<OutputPage />} />
               <Route path="/Settings" element={<SettingsPage />} />

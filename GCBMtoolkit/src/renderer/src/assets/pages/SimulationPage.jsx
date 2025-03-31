@@ -1,7 +1,24 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SimulationPage() {
+  const navigate = useNavigate();
+
+  const handleLoadConfig = async () => {
+    try {
+      // Replace with actual logic to load config file from saved_configs
+      const response = await window.electron.readConfig("saved_configs/config.json");
+      if (response) {
+        console.log("Loaded config:", response);
+        navigate("/Simulation/ScriptEditor", { state: { config: response } });
+      } else {
+        console.error("Failed to load config");
+      }
+    } catch (error) {
+      console.error("Error loading config:", error);
+    }
+  };
+
   return (
     <div className="flex flex-col p-6">
       <div className="hero bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white py-12 px-8 rounded-lg shadow-md">
@@ -26,13 +43,12 @@ function SimulationPage() {
         </ul>
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 space-x-4">
         <NavLink to="/Simulation/TileSelection">
           <button className="bg-gray-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-500 transition">
-           Generate
+            Generate
           </button>
         </NavLink>
-        <div className="p-8"></div>
       </div>
     </div>
   );

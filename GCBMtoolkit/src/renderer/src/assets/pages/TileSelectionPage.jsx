@@ -474,7 +474,7 @@ function TileSelectionPage() {
         {tileData.map((tile) => (
           <div
             key={tile.id}
-            className={`absolute w-4 h-4 border cursor-pointer transition-all opacity-50 duration-200 ${
+            className={`absolute w-4 h-4 border border-opacity-10 cursor-pointer transition-all opacity-50 duration-200 ${
               selectedTiles.includes(tile.id)
                 ? "bg-blue-600 border-blue-700 opacity-70"
                 : "bg-gray-200 border-gray-800 hover:bg-gray-600"

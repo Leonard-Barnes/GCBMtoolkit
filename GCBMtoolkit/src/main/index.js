@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog, protocol } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -6,19 +6,19 @@ const path = require("path");
 const { spawn } = require("child_process")
 const fs = require("fs")
 
-const configPath = path.join(app.getAppPath(), "GCBMTools", "DataFromTileSelect", "config", "walltowall_config.json")
+const basePath = app.getAppPath();
+const GCBMPath = path.join(basePath, "GCBMTools", "DataFromTileSelect");
 
-const userDataPath = path.join(app.getAppPath(), "user_data.json")
+const configPath = path.join(GCBMPath, "config", "walltowall_config.json");
+const userDataPath = path.join(basePath, "user_data.json");
+const outputDirectory = path.join(GCBMPath, "processed_output", "spatial");
+const tileSelectionFile = path.join(basePath, "selectedTiles.json");
 
-const desktopPath = app.getPath("desktop")
-
-const outputDirectory = path.join(app.getAppPath(), "GCBMTools", "DataFromTileSelect", "processed_output", "spatial")
-
-const tileSelectionFile = path.join(app.getAppPath(), "selectedTiles.json")
+const GCBMDirectory = path.join(app.getAppPath(), "GCBMTools", "DataFromTileSelect")
 
 // Construct the dynamic path
 const batFilePath = path.join(
-  desktopPath,
+  app.getPath("desktop"),
   "GCBMtoolkit",
   "GCBMtoolkit",
   "GCBMtoolkit",
@@ -57,7 +57,8 @@ function createWindow() {
   })
 
   // HMR for renderer base on electron-vite cli.
-  // Load the remote URL for development or the local html file for production.
+  // Load the remote URL for development or the local html file for production
+
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
@@ -72,6 +73,11 @@ app.whenReady().then(() => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron')
 
+  protocol.registerFileProtocol("safe-file", (request, callback) => {
+    const url = request.url.replace("safe-file://", "");
+    callback({ path: path.normalize(url) });
+  });
+
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
   // see https://github.com/alex8088/electron-toolkit/tree/master/packages/utils
@@ -79,24 +85,51 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  // IPC test
-  //ipcMain.on('ping', () => console.log('pong'))
+  const getCurrentWindow = () => BrowserWindow.getFocusedWindow();
+  ipcMain.on("close-window", () => getCurrentWindow()?.close());
+  ipcMain.on("minimize-window", () => getCurrentWindow()?.minimize());
 
-  ipcMain.on("close-window",()=>{
-    const currentWIndow = BrowserWindow.getFocusedWindow()
-    if(currentWIndow){
-      currentWIndow.close()
+  const readFile = (filePath) => {
+    try {
+      return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, "utf-8")) : null;
+    } catch (error) {
+      console.error(`Error reading file ${filePath}:`, error);
+      return null;
     }
-
-  })
-
-  ipcMain.on("minimize-window",()=>{
-    const currentWIndow = BrowserWindow.getFocusedWindow()
-    if(currentWIndow){
-      currentWIndow.minimize()
+  };
+  
+  const writeFile = (filePath, data) => {
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
+      return { success: true };
+    } catch (error) {
+      console.error(`Error writing file ${filePath}:`, error);
+      return { success: false, error: error.message };
     }
+  }
 
-  })
+  ipcMain.handle("load-user-data", () => readFile(userDataPath));
+  ipcMain.handle("save-user-data", (_, data) => writeFile(userDataPath, data));
+
+  ipcMain.handle("load-tile-data", () => readFile(tileSelectionFile));
+  ipcMain.handle("save-selected-tiles", (_, tiles) => writeFile(tileSelectionFile, tiles));
+
+  ipcMain.handle("save-config", (_, config) => writeFile(configPath, config));
+
+  ipcMain.handle('get-tiff-file', async (event, filePath) => {
+    try {
+      // Read the file as a binary buffer
+      const buffer = fs.readFileSync(filePath);
+      
+      // Convert the buffer to an ArrayBuffer if needed
+      const bufferArray = new Uint8Array(buffer).buffer;
+  
+      return bufferArray; // Return ArrayBuffer
+    } catch (error) {
+      console.error("Error reading TIFF file:", error);
+      return { error: "File not found or invalid" };
+    }
+  });
 
   ipcMain.handle("load-script", async () => {
     try {
@@ -117,43 +150,6 @@ app.whenReady().then(() => {
       console.error("Error saving script:", error);
     }
   })
-
-  ipcMain.handle("save-user-data", async (_, userData) => {
-    try {
-      fs.writeFileSync(userDataPath, JSON.stringify(userData, null, 2), "utf-8");
-      console.log("User data saved to:", userDataPath);
-      return { success: true };
-    } catch (error) {
-      console.error("Error saving user data:", error);
-      return { success: false, error: error.message };
-    }
-  })
-
-  ipcMain.handle("load-user-data", async () => {
-    try {
-      if (fs.existsSync(userDataPath)) {
-        const data = fs.readFileSync(userDataPath, "utf-8");
-        return JSON.parse(data);
-      }
-      return null;
-    } catch (error) {
-      console.error("Error loading user data:", error);
-      return null;
-    }
-  });
-
-  ipcMain.handle("load-tile-data", async () => {
-    try {
-      if (fs.existsSync(tileSelectionFile)) {
-        const data = fs.readFileSync(tileSelectionFile, "utf-8");
-        return JSON.parse(data);
-      }
-      return null;
-    } catch (error) {
-      console.error("Error loading user data:", error);
-      return null;
-    }
-  });
   
   // Start the generation process
   ipcMain.handle("start-generation", async () => {
@@ -201,16 +197,6 @@ app.whenReady().then(() => {
     })
   })
 
-  ipcMain.handle("save-config", async (event, config) => {
-    try {
-      fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-      return { success: true };
-    } catch (error) {
-      console.error("Error saving config file:", error);
-      return { success: false, error };
-    }
-  });
-
   ipcMain.handle('open-in-default-editor', async () => {
     try {
       const filePath = path.resolve(configPath); // Ensure this is the correct path to your file
@@ -230,22 +216,35 @@ app.whenReady().then(() => {
     return outputDirectory;
   });
   
-  ipcMain.handle("open-folder", async (_, folderPath) => {
-    shell.openPath(folderPath);
-  })
-
   ipcMain.handle("get-output-files", async () => {
     try {
-      const files = fs.readdirSync(outputDirectory).map((file) => ({
+      // Get the path to the TIFF folder
+      const tiffFolder = path.join(app.getAppPath(), "GCBMTools", "DataFromTileSelect", "processed_output", "spatial");
+  
+      // Read the directory and return full paths
+      const files = fs.readdirSync(tiffFolder).map((file) => ({
         name: file,
-        path: path.join(outputDirectory, file),
+        path: `${path.join(tiffFolder, file)}`,
       }));
+  
       return { success: true, files };
     } catch (error) {
-      console.error("Error reading output directory:", error);
+      console.error("Error fetching TIFF files:", error);
       return { success: false, error: error.message };
     }
-  })
+  });
+
+  ipcMain.handle("open-folder", async (_, folderPath) => {
+    try {
+      const fullPath = path.join(GCBMDirectory, folderPath)
+      console.log("Path", fullPath);
+      await shell.openPath(fullPath);
+      return { success: true };
+    } catch (error) {
+      console.error("Error opening output folder:", error);
+      return { success: false, error: error.message };
+    }
+  });
 
   ipcMain.handle("open-output-folder", async () => {
     try {
@@ -257,25 +256,24 @@ app.whenReady().then(() => {
     }
   });
 
-  ipcMain.handle("select-file", async () => {
-    const result = await dialog.showOpenDialog({
-      properties: ["openFile"],
-    });
-  
-    if (!result.canceled && result.filePaths.length > 0) {
-      return { success: true, filePath: result.filePaths[0] };
-    }
-    return { success: false };
-  });
-
-  ipcMain.handle("save-selected-tiles", async (_, tiles) => {
+  ipcMain.handle("select-file", async (_, directory) => {
     try {
-      fs.writeFileSync(tileSelectionFile, JSON.stringify(tiles));
-      console.log("Tiles saved:", tiles);
+        const fullPath = path.join(GCBMDirectory, directory);
+
+        const result = await dialog.showOpenDialog({
+            defaultPath: fullPath,
+            properties: ["openFile"],
+        });
+
+        if (!result.canceled && result.filePaths.length > 0) {
+            return { success: true, filePath: result.filePaths[0] };
+        }
+        return { success: false };
     } catch (error) {
-      console.error("Error saving tiles:", error);
+        console.error("Error in select-file handler:", error);
+        return { success: false, error: error.message };
     }
-  });
+});
 
   createWindow()
 

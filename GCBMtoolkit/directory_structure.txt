@@ -1,0 +1,103 @@
++---.vscode
+|       extensions.json
+|       launch.json
+|       settings.json
+|       
++---build
+|       entitlements.mac.plist
+|       icon.icns
+|       icon.ico
+|       icon.png
+|       
++---GCBMTools
+|   \---DataFromTileSelect
+|       +---config
+|       |       walltowall_config.json
+|       |       
+|       +---gcbm_project  
+|       |   \---output
+|       |           gcbm_output.db
+|       |           
+|       +---input_database
+|       |       
+|       +---layers
+|       |   +---raw
+|       |   |   +---Disturbances
+|       |   |   |   +---Fire
+|       |   |   |   |       
+|       |   |   |   \---Insect
+|       |   |   +---Environment
+|       |   |   |       annual_temp.tif
+|       |   |   |       annual_temp.tif.aux.xml
+|       |   |   |       
+|       |   |   \---Inventory
+|       |   |           
+|       |   \---tiled
+|       |           
+|       +---logs
+|       |       create_tiffs.log
+|       |       
+|       +---processed_output
+|       |   |   compiled_gcbm_output.db
+|       |   |   
+|       |   \---spatial
+|       |           Age_1990.tif
+|       +---tools
+|       |   +---CompileGCBMResults
+|       |   |   \---sql           
+|       |   +---CompileGCBMSpatialOutput
+|       |   |       create_tiffs.bat
+|       |   |       create_tiffs.py
+|       |   |       
+|       |   \---GCBM
+|       \---__pycache__
+|               qaqc.cpython-310.pyc
+|                              
++---out
+|   +---main
+|   |       index.js
+|   |       
+|   \---preload
+|           index.js
+|           
++---public
+|   \---pdfs
+|           GCBM-Installation-Guide.pdf
+|           GCBM-JSON Workflow.pdf
+|           gcbmwalltowall Manual.pdf
+|           
++---resources
+|       icon.png
+|       
+\---src
+    +---main
+    |       index.js
+    |       
+    +---preload
+    |       index.js
+    |       
+    \---renderer
+        |   index.html
+        |   
+        \---src
+            |   App.jsx
+            |   main.jsx
+            |   
+            +---assets 
+            |   \---pages
+            |           FAQPage.jsx
+            |           GeneratePage.jsx
+            |           HomePage.jsx
+            |           OutputPage.jsx
+            |           ScriptEditorPage.jsx
+            |           SettingsPage.jsx
+            |           SetupPage.jsx
+            |           SimulationPage.jsx
+            |           TileSelectionPage.jsx
+            |           
+            \---components
+                    SideBar.jsx
+                    TiffViewer.jsx
+                    TopBar.jsx
+                    Versions.jsx
+                    

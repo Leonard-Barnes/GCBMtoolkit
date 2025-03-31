@@ -1,8 +1,11 @@
 {
   "files": {
-    "yieldTable": "../input_database/yield_table_UngRU.csv",
-    "leadingSpecies": "../layers/raw/Inventory/lead_species_150km.tif",
-    "age": "../layers/raw/Inventory/forest_age_150km.tif"
+    "yieldTable": "yield_table_UngRU.csv",
+    "leadingSpecies": "lead_species_150km.tif",
+    "age": "forest_age_150km.tif",
+    "RU": "admin_eco_150km.shp",
+    "fire": "wildfire_150km.shp",
+    "temp": "annual_temp.tif"
   },
   "disturbances": [],
   "parameters": {

@@ -19,7 +19,8 @@ if (process.contextIsolated) {
   window.api = api
 }
 
-contextBridge.exposeInMainWorld("electron", {
+contextBridge.exposeInMainWorld("preload", {
   loadScript: () => ipcRenderer.invoke("load-script"),
   saveScript: (content) => ipcRenderer.send("save-script", content),
+  readTiff: (filePath) => ipcRenderer.invoke("read-tiff", filePath),
 });
