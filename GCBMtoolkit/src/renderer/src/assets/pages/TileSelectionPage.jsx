@@ -440,11 +440,6 @@ function TileSelectionPage() {
     saveSelection([]); // Saves the empty selection
   };
 
-  const skipSelection = () => {
-    setSelectedTiles(["SKIP"]); // Save skip action
-    saveSelection(["SKIP"]);
-  };
-
   const saveSelection = async (tiles) => {
     try {
       await window.electron.ipcRenderer.invoke("save-selected-tiles", tiles);
@@ -510,14 +505,6 @@ function TileSelectionPage() {
             }`}
           >
             Submit
-          </button>
-        </NavLink>
-        <NavLink to="/Simulation/Setup">
-          <button
-            onClick={skipSelection}
-            className="px-4 py-2 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-600"
-          >
-            Skip
           </button>
         </NavLink>
       </div>

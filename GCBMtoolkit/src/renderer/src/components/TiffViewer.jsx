@@ -12,6 +12,7 @@ const TiffViewer = ({ files }) => {
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
   const [clickedValue, setClickedValue] = useState(null);
+  const [clickedCoords, setClickedCoords] = useState(null); // ← new state
 
   useEffect(() => {
     console.log("TiffViewer mounted with files:", files);
@@ -56,33 +57,47 @@ const TiffViewer = ({ files }) => {
         const nodata = image.getGDALNoData() ?? -9999;
         console.log("NoData Value:", nodata);
 
-        for (let i = 0; i < data.length; i++) {
-          const value = data[i];
+        const min = Math.min(...data.filter((v) => v !== nodata));
+const max = Math.max(...data.filter((v) => v !== nodata));
 
-          if (value === nodata) {
-            // NoData pixels should be transparent
-            imageData.data[i * 4] = 0;
-            imageData.data[i * 4 + 1] = 0;
-            imageData.data[i * 4 + 2] = 0;
-            imageData.data[i * 4 + 3] = 0; // Fully transparent
-          } else if (value === 0) {
-            // Show 0 as white
-            imageData.data[i * 4] = 255;
-            imageData.data[i * 4 + 1] = 255;
-            imageData.data[i * 4 + 2] = 255;
-            imageData.data[i * 4 + 3] = 255; // Fully visible
-          } else {
-            // Show other values in grayscale
-            const grayValue = value; // Adjust if necessary (scaling)
-            imageData.data[i * 4] = grayValue;
-            imageData.data[i * 4 + 1] = grayValue;
-            imageData.data[i * 4 + 2] = grayValue;
-            imageData.data[i * 4 + 3] = 255; // Fully visible
-          }
-        }
+for (let i = 0; i < data.length; i++) {
+  const value = data[i];
+
+  if (value === nodata) {
+    imageData.data[i * 4] = 0;
+    imageData.data[i * 4 + 1] = 0;
+    imageData.data[i * 4 + 2] = 0;
+    imageData.data[i * 4 + 3] = 0;
+  } else {
+    // Normalize value to [0, 1]
+    const normalized = (value - min) / (max - min);
+
+    // Blue to red gradient
+    const r = Math.floor(255 * normalized);
+    const g = Math.floor(255 * (1 - normalized));
+    const b = Math.floor(255 * (0.5 - Math.abs(normalized - 0.5)) * 2); // peak green at mid values
+    imageData.data[i * 4] = r;
+    imageData.data[i * 4 + 1] = g;
+    imageData.data[i * 4 + 2] = b;
+    imageData.data[i * 4 + 3] = 255;
+  }
+}
 
         ctx.putImageData(imageData, 0, 0);
         console.log("Successfully rendered TIFF:", filePath);
+
+        // ⬇️ Recalculate clicked value from saved coords
+        if (clickedCoords) {
+          const { x, y } = clickedCoords;
+          const index = y * width + x;
+          const value = data[index];
+          if (value <= -1000) {
+            setClickedValue(`Value at (${x}, ${y}): No Data`);
+          } else {
+            setClickedValue(`Value at (${x}, ${y}): ${value.toFixed(2)}`);
+          }
+        }
+
       } catch (err) {
         console.error("Error loading TIFF:", err);
         setError("Failed to load TIFF file.");
@@ -126,6 +141,8 @@ const TiffViewer = ({ files }) => {
     const index = y * imageWidth + x;
     const value = rasterData[index];
 
+    setClickedCoords({ x, y }); // ← track last clicked coords
+
     if (value <= -1000) {
       setClickedValue(`Value at (${x}, ${y}): No Data`);
     } else {
@@ -145,8 +162,8 @@ const TiffViewer = ({ files }) => {
             ref={canvasRef}
             onClick={handleCanvasClick}
             style={{
-              maxWidth: "100%",
-              border: "1px solid black",
+              minwidth: "800px",
+              Width: "100",
               backgroundColor: "transparent",
               cursor: "crosshair",
             }}
@@ -164,7 +181,6 @@ const TiffViewer = ({ files }) => {
       )}
     </div>
   );
-  
 };
 
 export default TiffViewer;

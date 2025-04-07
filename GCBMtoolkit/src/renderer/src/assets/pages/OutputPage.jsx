@@ -46,17 +46,12 @@ export default function OutputPage() {
   };
 
   return (
-    <div className="p-6 w-[630px] mx-auto bg-white shadow-lg rounded-lg h-[600px] flex flex-col gap-4">
+    <div className="px-6 py-4 w-[630px] mx-auto bg-white shadow-lg rounded-lg h-[600px] flex flex-col gap-4 mt-4">
       {/* Header with Back, Title, and Exit buttons */}
       <div className="flex justify-between items-center">
-        <NavLink to="/Simulation/Generate">
-          <button className="bg-gray-500 text-white px-2 py-2 rounded hover:bg-gray-600">
-          <ArrowLeft size={20} />
-          </button>
-        </NavLink>
         <h1 className="text-2xl font-bold">GCBM Output</h1>
         <NavLink to="/Simulation">
-          <button className=" text-white px-4 py-2 rounded hover:bg-gray-700">
+          <button className=" text-white px-4 rounded hover:bg-gray-700">
             ✖
           </button>
         </NavLink>

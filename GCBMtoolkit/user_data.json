@@ -1,11 +1,10 @@
 {
   "files": {
     "yieldTable": "yield_table_UngRU.csv",
-    "leadingSpecies": "lead_species_150km.tif",
-    "age": "forest_age_150km.tif",
-    "RU": "admin_eco_150km.shp",
-    "fire": "wildfire_150km.shp",
-    "temp": "annual_temp.tif"
+    "leadingSpecies": "CA_forest_lead_tree_species.tif",
+    "age": "CA_forest_age_2019.tif",
+    "RU": "admin_eco.shp",
+    "temp": "NAmerica_MAT_1971_2000.tif"
   },
   "disturbances": [],
   "parameters": {

@@ -9,6 +9,7 @@ const fs = require("fs")
 const basePath = app.getAppPath();
 const GCBMPath = path.join(basePath, "GCBMTools", "DataFromTileSelect");
 
+const prevDataPath = path.join(GCBMPath, "gcbm_project", "output");
 const configPath = path.join(GCBMPath, "config", "walltowall_config.json");
 const userDataPath = path.join(basePath, "user_data.json");
 const outputDirectory = path.join(GCBMPath, "processed_output", "spatial");
@@ -24,7 +25,7 @@ const batFilePath = path.join(
   "GCBMtoolkit",
   "GCBMTools",
   "DataFromTileSelect",
-  "test.bat"
+  "run_all.bat"
 );
 
 function createWindow() {
@@ -153,10 +154,40 @@ app.whenReady().then(() => {
   
   // Start the generation process
   ipcMain.handle("start-generation", async () => {
+    try {
+      if (fs.existsSync(prevDataPath)) {
+        console.log(`Deleting folder: ${prevDataPath}`);
+  
+        // Change permissions to allow deletion
+        fs.chmodSync(prevDataPath, 0o777); // Full permissions
+  
+        // Recursively remove all read-only flags inside the folder
+        const removeReadOnly = (dir) => {
+          fs.readdirSync(dir).forEach((file) => {
+            const fullPath = path.join(dir, file);
+            fs.chmodSync(fullPath, 0o777); // Grant full access
+            if (fs.statSync(fullPath).isDirectory()) {
+              removeReadOnly(fullPath);
+            }
+          });
+        };
+        removeReadOnly(prevDataPath);
+  
+        // Delete the folder
+        await fs.promises.rm(prevDataPath, { recursive: true, force: true });
+  
+        console.log("Folder deleted successfully.");
+      } else {
+        console.log("Folder does not exist, skipping deletion.");
+      }
+    } catch (error) {
+      console.error("Error deleting folder:", error);
+      return { success: false, message: "Error deleting previous data folder", error: error.message };
+    }
+  
     return new Promise((resolve, reject) => {
       try {
         console.log("Starting generation process...");
-  
         const batProcess = spawn("cmd.exe", ["/c", `"${batFilePath}"`], {
           cwd: path.dirname(batFilePath),
           shell: true,
@@ -167,13 +198,13 @@ app.whenReady().then(() => {
         batProcess.stdout.on("data", (data) => {
           const output = data.toString();
           console.log(`Output: ${output}`);
-          outputLogs += output; // Collect logs
+          outputLogs += output;
         });
   
         batProcess.stderr.on("data", (data) => {
           const errorOutput = data.toString();
-          console.error(`Error: ${errorOutput}`);
-          outputLogs += errorOutput; // Collect errors too
+          console.error(`${errorOutput}`);
+          outputLogs += errorOutput;
         });
   
         batProcess.on("close", (code) => {
@@ -194,8 +225,8 @@ app.whenReady().then(() => {
         console.error("Error during batch execution:", error);
         reject({ success: false, error: error.message });
       }
-    })
-  })
+    });
+  });
 
   ipcMain.handle('open-in-default-editor', async () => {
     try {

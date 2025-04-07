@@ -2,7 +2,8 @@
     "project_type": "GcbmClassicSpatial",
     "classifiers": [
         "LeadingSpecies",
-        "RU"
+        "PROV",
+        "Ecozone"
     ],
     "aidb": "cbm_defaults_v1.2.8340.362.db",
     "features": {
@@ -14,7 +15,8 @@
             "increment_end_col": 266,
             "classifier_cols": {
                 "LeadingSpecies": 1,
-                "RU": 11
+                "PROV": 10,
+                "Ecozone": 14
             }
         }
     }

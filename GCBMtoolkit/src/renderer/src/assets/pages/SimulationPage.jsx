@@ -49,6 +49,11 @@ function SimulationPage() {
             Generate
           </button>
         </NavLink>
+        <NavLink to="/Simulation/Output">
+          <button className="bg-green-600 text-white py-3 ml-6 px-6 rounded-lg shadow-md hover:bg-green-500 transition">
+            View Output
+          </button>
+        </NavLink>
       </div>
     </div>
   );

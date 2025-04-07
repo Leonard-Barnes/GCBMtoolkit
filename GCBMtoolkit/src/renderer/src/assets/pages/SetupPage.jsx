@@ -9,18 +9,17 @@ export default function SetupPage() {
 
   const [files, setFiles] = useState({
     yieldTable: "yield_table_UngRU.csv",
-    leadingSpecies: "lead_species_150km.tif",
-    age: "forest_age_150km.tif",
-    RU: "admin_eco_150km.shp",
-    fire: "wildfire_150km.shp",
-    temp: "annual_temp.tif",
+    leadingSpecies: "CA_forest_lead_tree_species.tif",
+    age: "CA_forest_age_2019.tif",
+    RU: "admin_eco.shp",
+    temp: "NAmerica_MAT_1971_2000.tif",
   });
 
   const FilePaths = {
     inventory: "../layers/raw/Inventory/",
     enviroment: "../layers/raw/Environment/",
     fire: "../layers/raw/Disturbances/Fire/",
-    insect: "../layers/raw/Disturbances/Insect/",
+    harvest: "../layers/raw/Disturbances/Harvest/",
     inputDatabase: "../input_database/",
   }
 
@@ -88,25 +87,38 @@ export default function SetupPage() {
       yield_interval: parameters.yield_interval,
       bounding_box: {
         layer: "../layers/raw/Inventory/GRID_forested_ecosystems.shp",
-        attribute: { TileID: tileIDs || [] }, // Ensure TileID is never null
+        attribute: { Id: tileIDs || [] }, // Ensure TileID is never null
       },
       classifiers: {
         LeadingSpecies: {
           layer: FilePaths.inventory + files.leadingSpecies,
           attribute: "NFI code",
         },
-        RU: {
+        PROV: {
           layer: FilePaths.inventory + files.RU,
+          attribute: "ProvinceNa"
         },
+        Ecozone: {
+          layer: FilePaths.inventory + files.RU,
+          attribute: "EcoBound_1"
+        }
       },
       layers: {
+        admin_boundary: {
+            layer: FilePaths.inventory + files.RU,
+            attribute: "ProvinceNa"
+        },
+        eco_boundary: {
+            layer: FilePaths.inventory + files.RU,
+            attribute: "EcoBound_1"
+        },
         initial_age: { layer: FilePaths.inventory + files.age },
         mean_annual_temperature: FilePaths.enviroment + files.temp,
       },
       disturbances: {
-        "../layers/raw/disturbances/fire/wildfire_150km.shp": {
-          "disturbance_type": "Wildfire",
-          "year": "YEAR"
+        "../layers/raw/disturbances/harvest/CA_Forest_Harvest_1985-2020.tif": {
+          "disturbance_type": "Clearcut harvesting with salvage",
+          "year": "year"
         }
       },
       gcbm_exe: DEFAULT_GCBM_EXECUTABLE,
@@ -215,7 +227,6 @@ export default function SetupPage() {
           { label: "Leading Species", name: "leadingSpecies", dir: FilePaths.inventory },
           { label: "Age", name: "age", dir: FilePaths.inventory },
           { label: "RU", name: "RU", dir: FilePaths.inventory },
-          { label: "Fire", name: "fire", dir: FilePaths.fire },
           { label: "Temperature", name: "temp", dir: FilePaths.enviroment },
         ].map(({ label, name, dir }) => (
           <div key={name} className="flex items-center space-x-4">

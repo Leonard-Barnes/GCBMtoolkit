@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function GeneratePage() {
   const [userData, setUserData] = useState(null);
@@ -20,6 +21,11 @@ export default function GeneratePage() {
   }, []);
 
   const handleGenerate = async () => {
+    const confirmed = window.confirm(
+      "This will delete the previous generation. Are you sure you want to continue?"
+    );
+    if (!confirmed) return;
+
     setIsGenerating(true);
     setIsFinished(false);
 
@@ -35,13 +41,22 @@ export default function GeneratePage() {
 
   return (
     <div className="p-6 w-[630px] mx-auto bg-white shadow-lg rounded-lg h-[600px] overflow-y-auto mt-4">
-      <h1 className="text-2xl font-bold mb-4">GCBM Generation</h1>
-      <NavLink to="/Simulation">
-        <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 w-16 mt-4 top-12 right-8 absolute ">
-          Exit
-        </button>
-      </NavLink>
-      <p className="mb-4">Review your inputs and start the generation process.</p>
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <NavLink to="/Simulation/ScriptEditor">
+          <button className="bg-gray-500 text-white px-2 py-2 rounded hover:bg-gray-600">
+            <ArrowLeft size={20} />
+          </button>
+        </NavLink>
+        <h1 className="text-2xl font-bold">GCBM Generate</h1>
+        <NavLink to="/Simulation">
+          <button className="text-white px-4 py-2 rounded hover:bg-gray-700">
+            ✖
+          </button>
+        </NavLink>
+      </div>
+
+      <p className="mb-4 mt-2">Review your inputs and start the generation process.</p>
 
       {userData ? (
         <>
@@ -54,7 +69,7 @@ export default function GeneratePage() {
             ))}
           </ul>
 
-
+          {/* Start Generation Button with Confirmation */}
           <button
             onClick={handleGenerate}
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full mt-4 disabled:opacity-50"
@@ -63,6 +78,7 @@ export default function GeneratePage() {
             {isGenerating ? "Generating..." : "Start Generation"}
           </button>
 
+          {/* Go to Output Button */}
           <NavLink to="/Simulation/Output">
             <button
               className={`bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full mt-4 ${
@@ -74,14 +90,13 @@ export default function GeneratePage() {
             </button>
           </NavLink>
 
-          {/* Loading Indicator Below Buttons */}
+          {/* Loading Indicator */}
           {isGenerating && (
             <div className="flex items-center justify-center mt-4">
               <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500"></div>
               <span className="ml-2 text-blue-600">Generating...</span>
             </div>
           )}
-
         </>
       ) : (
         <p>Loading user data...</p>

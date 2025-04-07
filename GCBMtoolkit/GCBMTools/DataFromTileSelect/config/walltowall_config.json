@@ -9,30 +9,44 @@
   "bounding_box": {
     "layer": "../layers/raw/Inventory/GRID_forested_ecosystems.shp",
     "attribute": {
-      "TileID": [
-        260
+      "Id": [
+        471,
+        510
       ]
     }
   },
   "classifiers": {
     "LeadingSpecies": {
-      "layer": "../layers/raw/Inventory/lead_species_150km.tif",
+      "layer": "../layers/raw/Inventory/CA_forest_lead_tree_species.tif",
       "attribute": "NFI code"
     },
-    "RU": {
-      "layer": "../layers/raw/Inventory/admin_eco_150km.shp"
+    "PROV": {
+      "layer": "../layers/raw/Inventory/admin_eco.shp",
+      "attribute": "ProvinceNa"
+    },
+    "Ecozone": {
+      "layer": "../layers/raw/Inventory/admin_eco.shp",
+      "attribute": "EcoBound_1"
     }
   },
   "layers": {
-    "initial_age": {
-      "layer": "../layers/raw/Inventory/forest_age_150km.tif"
+    "admin_boundary": {
+      "layer": "../layers/raw/Inventory/admin_eco.shp",
+      "attribute": "ProvinceNa"
     },
-    "mean_annual_temperature": "../layers/raw/Environment/annual_temp.tif"
+    "eco_boundary": {
+      "layer": "../layers/raw/Inventory/admin_eco.shp",
+      "attribute": "EcoBound_1"
+    },
+    "initial_age": {
+      "layer": "../layers/raw/Inventory/CA_forest_age_2019.tif"
+    },
+    "mean_annual_temperature": "../layers/raw/Environment/NAmerica_MAT_1971_2000.tif"
   },
   "disturbances": {
-    "../layers/raw/disturbances/fire/wildfire_150km.shp": {
-      "disturbance_type": "Wildfire",
-      "year": "YEAR"
+    "../layers/raw/disturbances/harvest/CA_Forest_Harvest_1985-2020.tif": {
+      "disturbance_type": "Clearcut harvesting with salvage",
+      "year": "year"
     }
   },
   "gcbm_exe": "../tools/gcbm/moja.cli.exe"
